@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>View Pilot</title>
+	</head>
+	<!-- <body>
+		<h3 th:text="'Pilot license number: ' + ${pilot.licenseNumber}"></h3>
+		<h3 th:text="'Name: ' + ${pilot.name}"></h3>
+		<h3 th:text="'Fly Hour: ' + ${pilot.flyHour}"></h3>
+		
+		<td><a th:href="@{/flight/add/} + ${pilot.licenseNumber}">add flight</a></td>
+	</body> -->
+	<body>
+		<h2>Pilot's Data</h2>
+		<h3 th:text="'License number: ' + ${pilot.licenseNumber}"></h3>
+		<h3 th:text="'Name: ' + ${pilot.name}"></h3>
+		<h3 th:text="'Fly Hour: ' + ${pilot.flyHour}"></h3>
+		<td><a th:href="@{/pilot/update/} + ${pilot.licenseNumber}">Update Pilot</a></td>
+		<td><a th:href="@{/pilot/delete/} + ${pilot.id}">Delete Pilot</a></td>
+		<h3 th:text="'====================='"></h3>
+		
+		<h2>Flight's Data</h2>
+		<div th:each="flight : ${flight_list}">
+			<h3 th:text="'Flight Number: ' + ${flight.flightNumber}"></h3>
+			<h3 th:text="'Flight Origin: ' + ${flight.origin}"></h3>
+			<h3 th:text="'Flight Destination: ' + ${flight.destination}"></h3>
+			<h3 th:text="'Flight Time: ' + ${flight.time}"></h3>
+			<td><a th:href="@{/flight/update/} + ${flight.id}">Update flight</a></td>
+			<td><a th:href="@{/flight/delete/} + ${flight.id}">Delete flight</a></td>
+			<h3 th:text="----------------------------------------"></h3>
+		</div>
+		
+		<td><a th:href="@{/flight/add/} + ${pilot.licenseNumber}">add flight</a></td>
+	</body>
+</html>
